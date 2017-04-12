@@ -2,11 +2,14 @@ package by.htp.taskPage51;
 
 public class C3 {
 	private int up = 0;
-	private int maxUp = 0;
+	private int down = 0;
+	private int max = 0;
 	private int upX = 0;
 	private int upY = 0;
-	private int maxUpX = 0;
-	private int maxUpY = 0;
+	private int downX = 0;
+	private int downY = 0;
+	private int maxX = 0;
+	private int maxY = 0;
 
 	public void search(int[][] mas) {
 		if (mas != null) {
@@ -14,37 +17,38 @@ public class C3 {
 				for (int i = 0; i < mas[j].length; i++) {
 
 					if (i != mas[j].length - 1) {
-						if (mas[j][i] > mas[j][i + 1]) {
-							position(j, i);
-						} else {
-							initMax();
-						}
-						
 						if (mas[j][i] < mas[j][i + 1]) {
-							position(j, i);
+							positionUp(j, i);
 						} else {
-							initMax();
+							initMaxUp();
+						}
+
+						if (mas[j][i] > mas[j][i + 1]) {
+							positionDown(j, i);
+						} else {
+							initMaxDown();
 						}
 					} else {
-						
-						if(mas[j][i] < mas[j+1][0]) {
-							position(j, i);
-						} else {
-							initMax();
-						}
-						if(mas[j][i] > mas[j+1][0]) {
-							position(j, i);
-						} else {
-							initMax();
+						if (j != mas.length - 1) {
+							if (mas[j][i] < mas[j + 1][0]) {
+								positionUp(j, i);
+							} else {
+								initMaxUp();
+							}
+							if (mas[j][i] > mas[j + 1][0]) {
+								positionDown(j, i);
+							} else {
+								initMaxDown();
+							}
 						}
 					}
 				}
 			}
-			System.out.println("{}" + maxUp + "x" + maxUpX + "y" + maxUpY);
+			System.out.println("{}" + max + "x" + maxX + "y" + maxY);
 		}
 	}
 
-	private void position(int j, int i) {
+	private void positionUp(int j, int i) {
 		if (up == 0) {
 			upX = j;
 			upY = i;
@@ -52,12 +56,29 @@ public class C3 {
 		up++;
 	}
 
-	private void initMax() {
-		if (up > maxUp) {
-			maxUp = up;
-			maxUpX = upX;
-			maxUpY = upY;
+	private void positionDown(int j, int i) {
+		if (down == 0) {
+			downX = j;
+			downY = i;
+		}
+		up++;
+	}
+
+	private void initMaxUp() {
+		if (up > max) {
+			max = up;
+			maxX = upX;
+			maxY = upY;
 		}
 		up = 0;
+	}
+
+	private void initMaxDown() {
+		if (down > max) {
+			max = down;
+			maxX = downX;
+			maxY = downY;
+		}
+		down = 0;
 	}
 }

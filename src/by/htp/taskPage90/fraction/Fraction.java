@@ -32,11 +32,6 @@ public class Fraction {
 		}
 	}
 
-	public void random(){
-		numerator=(int)(Math.random() * 100);
-		denominator = (int)(Math.random() * 100);
-	}
-	
 	public void decumulation() {
 		int z;
 		for (z = Math.abs(denominator); z > 0; z--) {
