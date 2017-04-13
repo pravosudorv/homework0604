@@ -14,7 +14,7 @@ public class Main {
 		
 		Print.print(masFraction);
 		System.out.println();
-		Doing.transformation(masFraction);
+		Logic.transformation(masFraction);
 		Print.print(masFraction);
 	}
 }

@@ -8,7 +8,7 @@ public class Point {
 	
 	private double projectionX = 0;
 	private double projectionY = 0;
-	//private int movingPercent = 0;
+	
 	EquationLine equationLine;
 	
 	public Point(double x, double y) {
@@ -73,7 +73,7 @@ public class Point {
 
 	@Override
 	public String toString() {
-		return "Point [x=" + x + ", y=" + y + "]";
+		return "Point [x=" + x + ", y=" + y + ", sped=" + sped + "]";
 	}
 
 }

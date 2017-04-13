@@ -19,12 +19,4 @@ public class Main {
 		
 	}
 	
-	public static void sdf(EquationLine equationLine) {
-		for(int i = -5; i <6; i++) {
-			double x = i;
-			double y = (equationLine.getC() - equationLine.getA() * x) / equationLine.getB();
-			
-			System.out.println(x+ " " +y);
-		}
-	}
 }

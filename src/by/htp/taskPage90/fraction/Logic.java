@@ -1,6 +1,6 @@
 package by.htp.taskPage90.fraction;
 
-public class Doing {
+public class Logic {
 
 	public static void transformation(Fraction[] mas) {
 		if (mas != null) {

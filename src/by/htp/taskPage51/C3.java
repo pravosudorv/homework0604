@@ -2,12 +2,10 @@ package by.htp.taskPage51;
 
 public class C3 {
 	private int up = 0;
-	private int down = 0;
+	
 	private int max = 0;
 	private int upX = 0;
 	private int upY = 0;
-	private int downX = 0;
-	private int downY = 0;
 	private int maxX = 0;
 	private int maxY = 0;
 
@@ -23,11 +21,6 @@ public class C3 {
 							initMaxUp();
 						}
 
-						if (mas[j][i] > mas[j][i + 1]) {
-							positionDown(j, i);
-						} else {
-							initMaxDown();
-						}
 					} else {
 						if (j != mas.length - 1) {
 							if (mas[j][i] < mas[j + 1][0]) {
@@ -35,16 +28,10 @@ public class C3 {
 							} else {
 								initMaxUp();
 							}
-							if (mas[j][i] > mas[j + 1][0]) {
-								positionDown(j, i);
-							} else {
-								initMaxDown();
-							}
 						}
 					}
 				}
 			}
-			System.out.println("{}" + max + "x" + maxX + "y" + maxY);
 		}
 	}
 
@@ -52,14 +39,6 @@ public class C3 {
 		if (up == 0) {
 			upX = j;
 			upY = i;
-		}
-		up++;
-	}
-
-	private void positionDown(int j, int i) {
-		if (down == 0) {
-			downX = j;
-			downY = i;
 		}
 		up++;
 	}
@@ -73,12 +52,4 @@ public class C3 {
 		up = 0;
 	}
 
-	private void initMaxDown() {
-		if (down > max) {
-			max = down;
-			maxX = downX;
-			maxY = downY;
-		}
-		down = 0;
-	}
 }

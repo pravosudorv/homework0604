@@ -57,25 +57,25 @@ public class Logic {
 		}
 	}
 	
-	public static double computingWay(Point point1, Point point2) {
-		double way;
-		way = Math.hypot((point2.getX() - point1.getX()), (point2.getY() - point1.getY()));
-		return way;
-	}
-	
-	public static double computingWay(Point point1, double x, double y) {
-		double way;
-		way = Math.hypot((x - point1.getX()), (y - point1.getY()));
-		return way;
-	}
-	
 	public static double distanceBetweenPoint(Point point1, Point point2, int time_s) {
 		findDislokation(point1, time_s);
 		findDislokation(point2, time_s);
 		return computingWay(point1, point2);
 	}
 	
-	public static void findDislokation(Point point, int time_s) {
+	private static double computingWay(Point point1, Point point2) {
+		double way;
+		way = Math.hypot((point2.getX() - point1.getX()), (point2.getY() - point1.getY()));
+		return way;
+	}
+	
+	private static double computingWay(Point point1, double x, double y) {
+		double way;
+		way = Math.hypot((x - point1.getX()), (y - point1.getY()));
+		return way;
+	}
+	
+	private static void findDislokation(Point point, int time_s) {
 		
 		double newX = point.getProjectionX() * point.getSped() * time_s;
 		double newY = point.getProjectionY() * point.getSped() * time_s;
